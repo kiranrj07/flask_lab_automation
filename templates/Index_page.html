@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <title>Server service | Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet"   href="{{ url_for('static', filename='css/login_style.css') }}">
+    <link rel="stylesheet"   href="{{ url_for('static', filename='css/common_style.css') }}">
+</head>
+<body>
+<div class="bg_img">
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand" style="color: white;">Server service</p>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+<!--      <li class="active"><a href="{{ url_for('index') }}">Home</a></li>-->
+        <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Upload types <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ url_for('individual_page') }}">Individual</a></li>
+            <li><a href="{{ url_for('csv_file') }}">CSV file</a></li>
+        </ul>
+      </li>
+      <li><a href="{{ url_for('servers') }}">Servers</a></li>
+      <li><a href="{{ url_for('log_data') }}">Log data</a></li>
+    </ul>
+    
+  </div>
+</nav>
+  
+<div class="container ">
+   
+    <div  class="user_guide">
+        <h1 class="gretting text-center" style="color: white;">Welcome to our <span style="color:midnightblue">Website</span></h1><br>
+        <br>
+
+        <div class="guide_center">
+            <h2 class="gretting">How to upload CSV file or run manually</h2>
+
+    <br>
+   <p> Make sure your device meets the minimum system requirements. For the latest version of Windows 10, you'll need to have the following: ...</p>
+   <p>Create installation media. Microsoft has a tool specifically for creating installation media. ...</p>
+   <p>Use the installation media. ...</p>
+   <p>Change your computer's boot order. ...</p>
+   <p>Use the installation media. ...</p>
+   <p>Change your computer's boot order. ...</p>
+   
+        </div>
+
+
+
+</div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue" >
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+      <a href="#">Kiran_host.com</a>
+    </div>
+
+  
+  </footer>
+  <!-- Footer -->
+</div>
+</body>
+</html>

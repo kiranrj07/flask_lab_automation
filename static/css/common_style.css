@@ -1,0 +1,106 @@
+
+
+      .bg_img { 
+  background: url(./Images/hp_bg.jpg) no-repeat center center fixed;
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+.navbar-brand{
+    font-size: 27px;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar{
+    padding: 5px;
+}
+
+
+footer, .navbar{
+    background-color: black;
+    opacity: 0.5;
+ }
+ 
+
+ .footer-copyright {
+    font-size: 15px;
+    color: white;
+    height: 100%;
+
+ }
+
+ .gretting{
+     
+     font-size: 35px;
+     font-weight: 550;
+     color: white;
+ }
+
+ .guide_center{
+   
+     background-color:black;
+     padding: 30px;
+     opacity: 0.7;
+ }
+
+ .guide_center>p{
+    color: white;
+ }
+
+
+
+
+/*lapto only css*/
+@media only screen and (min-width: 970px) {
+
+    .user_guide{
+  margin-top: 100px;
+
+
+}
+
+.guide_center{
+    margin-bottom: 150px;
+}
+
+}
+
+/*css for csf page*/
+      
+input[type=file]::-webkit-file-upload-button {
+    border: 2px solid rgb(131, 37, 37);
+    font-size: 18px;
+    padding: .2em .4em;
+    color: white;
+    border-radius: .2em;
+    background-color: red;
+    transition: 1s;
+  }
+  
+  input[type=file]::file-selector-button {
+      border: 2px solid rgb(131, 37, 37);
+      font-size: 18px;
+    color: white;
+    padding: .2em .4em;
+    border-radius: .2em;
+    background-color: red;
+    transition: 1s;
+  }
+  
+  input[type=file]::-webkit-file-upload-button:hover {
+    background-color: #81ecec;
+    border: 2px solid #00cec9;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #81ecec;
+    border: 2px solid #00cec9;
+  }
+  
+  /* end css for csf page*/
+
+

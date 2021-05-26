@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <link rel="stylesheet"   href="{{ url_for('static', filename='css/login_style.css') }}">
+    <link rel="stylesheet"   href="{{ url_for('static', filename='css/common_style.css') }}">
+<title> Individual | Server</title>
+
+    <script type="text/javascript">
+            function selects(){
+                var ele=document.getElementsByName('server_list');
+                for(var i=0; i<ele.length; i++){
+                    if(ele[i].type=='checkbox')
+                        ele[i].checked=true;
+                }
+            }
+            function deSelect(){
+                var ele=document.getElementsByName('server_list');
+                for(var i=0; i<ele.length; i++){
+                    if(ele[i].type=='checkbox')
+                        ele[i].checked=false;
+
+                }
+            }
+        </script>
+<style>
+.checkbox-inline{
+    display: block !important;
+}
+
+input[type=checkbox], input[type=radio] {
+    margin: 45px 0 0;
+ 
+
+}
+
+form{
+    background-color: black; opacity: 0.7;  align-items: center; padding: 30px; color: white;
+}
+
+</style>
+</head>
+<body>
+
+<!--navbar-->
+<div class="bg_img">
+    <nav class="navbar navbar-inverse ">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <p class="navbar-brand" style="color: white;">Server service</p>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Upload types <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{{ url_for('individual_page') }}">Individual</a></li>
+                <li><a href="{{ url_for('csv_file') }}">CSV file</a></li>
+            </ul>
+          </li>
+            <li><a href="{{ url_for('servers') }}">Servers</a></li>
+          <li><a href="{{ url_for('log_data') }}">Log data</a></li>
+        </ul>
+        
+      </div>
+    </nav>
+<!--end of nav bar-->
+
+
+
+
+<div class="container" >
+    <h1 class="gretting text-center" >Select your server<span style="color:midnightblue"></span></h1><br>
+  
+    <form action="{{ url_for('server_wakeup') }}" method="POST">
+        <label class="checkbox-inline"> 
+          <input type="checkbox" value="UCS1" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"  width="120px" height="75px"><span style="font-size: 15px;">UCS1</span>
+        </label>
+        <br>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="UCS2" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">UCS2</span>
+        </label>
+        <br>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="UCS3" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">UCS3</span>
+        </label>
+        <br>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="Dell5" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Dell5</span>
+          </label>
+          <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="Dell6" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Dell6</span>
+          </label>
+        <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="Dell7" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Dell7</span>
+          </label>
+        <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="Dell8" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Dell8</span>
+          </label>
+        <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="CoolerMaster9" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">CoolerMaster9</span>
+          </label>
+        <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="CoolerMaster10" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">CoolerMaster10</span>
+          </label>
+        <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="Laptop Workstation 11" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Laptop Workstation 11</span>
+          </label>
+        <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="Laptop Workstation 12" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Laptop Workstation 12</span>
+          </label><br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="Laptop Workstation 13" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Laptop Workstation 13</span>
+          </label>
+        <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="Laptop Workstation 14" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Laptop Workstation 14</span>
+          </label>
+        <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="Laptop Workstation 15" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Laptop Workstation 15</span>
+          </label>
+        <br>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="Hathi" name="server_list" ><img src="{{ url_for('static', filename='Images/server_logo_1.png') }}"   width="120px" height="75px"><span style="font-size: 15px;">Hathi server</span>
+          </label>
+            <br>
+
+        <label class="checkbox-inline">
+            &nbsp&nbsp
+         <input class="text_tab" type="button" style="background-color: tomato" onclick='selects()' value="Select All"/>
+        <input class="text_tab" type="button" style="background-color: tomato" onclick='deSelect()' value="Deselect All"/>
+
+            <label style=font-size:14,weight:bold;size:16px;" for="os">Select operation:</label>
+            <select style="background-color:black; font-family:georgia,garamond,serif;font-size:16px;font-style:italic;" name="os" id="os">
+                <option selected disabled>Choose here</option>
+                <option value="powerup">Power-up</option>
+                <option value="shutdown">Shutdown</option>
+                <option value="command">command</option>
+            </select>
+            </label>
+
+
+        <label class="checkbox-inline">
+            <button class="text_tab" type="submit" style="background-color: tomato;">Submit</button>
+        </label>
+      </form>
+
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue" >
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+      <a href="#">Kiran_host.com</a>
+    </div>
+
+  
+  </footer>
+  <!-- Footer -->
+</body>
+</html>

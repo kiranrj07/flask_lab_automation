@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet"   href="{{ url_for('static', filename='css/login_style.css') }}">
+    <link rel="stylesheet"   href="{{ url_for('static', filename='css/common_style.css') }}">
+  <title>Lab Automation</title>
+</head>
+<body>
+
+
+
+
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content " action="{{ url_for('validation') }}" method="POST">
+    <div class="imgcontainer">
+      
+<!--      <img src="" alt="Avatar" class="avatar"> -->
+          <image src="{{url_for('static',filename = 'images/login-logo.png')}}" alt="Avatar" class="avatar" >
+    </div>
+
+    <div class="container">
+      <!-- <label for="uname"><b>Username</b></label> -->
+      <input class="text_tab" type="text" placeholder="Username" name="uname" id="uname" required>
+
+      <!-- <label for="psw"><b>Password</b></label> -->
+      <input class="text_tab" type="password" placeholder="Password" name="passwd" id="passwd" required>
+        
+      <button class="text_tab" type="submit" >Login</button>
+     
+    </div>
+
+  
+  </form>
+</div>
+
+<script>
+
+</script>
+
+
+</body>
+</html>
