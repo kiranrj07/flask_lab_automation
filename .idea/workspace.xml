@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6cd40e34-6458-4ef1-8a45-c2f58b39af21" name="Default Changelist" comment="on server page script and command updated">
-      <change afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV_LI_WINDOW.py" beforeDir="false" afterPath="$PROJECT_DIR$/CSV_LI_WINDOW.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auto.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/server.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/server.html" afterDir="false" />
-    </list>
+    <list default="true" id="6cd40e34-6458-4ef1-8a45-c2f58b39af21" name="Default Changelist" comment="server with select[shutdown] implementation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,8 +95,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.python" />
       <item itemvalue="Python.auto" />
+      <item itemvalue="Python.python" />
     </list>
     <recent_temporary>
       <list>
@@ -140,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622108162928</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="server with select[shutdown] implementation">
+      <created>1622127622368</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1622127622368</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,6 +159,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="footer and output stream fixed" />
     <MESSAGE value="on server page script and command updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="on server page script and command updated" />
+    <MESSAGE value="server with select[shutdown] implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="server with select[shutdown] implementation" />
   </component>
 </project>
