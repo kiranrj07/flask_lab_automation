@@ -1,12 +1,17 @@
 import functools,math,time,os
+
 from werkzeug.utils import secure_filename, redirect
 from flask import Flask, request, url_for, Response, render_template, make_response
 
 import CSV_LI_WINDOW
 
+app = Flask(__name__)
 session = []
 ASSETS_DIR = os.path.dirname(os.path.abspath(__file__))
-app = Flask(__name__)
+UPLOAD_FOLDER = './files/csvfiles'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
 
 
 def login_required(func):
@@ -78,7 +83,9 @@ def server_wakeup():
 @login_required
 def csv_content():
     f = request.files['file']
-    f.save(secure_filename(f.filename))
+    filename = secure_filename(f.filename)
+    f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    #f.save(secure_filename(f.filename))
     session.insert(1,f.filename)
     return render_template('csv_output.html')
 
@@ -91,7 +98,7 @@ def content():
         # simulate a long process to watch
         while 'endofprogramcompletion' not in output:
            # yield '<b>The commands are being executed.</b><br/><br/>'
-            output = CSV_LI_WINDOW.csv_file(session[1]).copy()
+            output = CSV_LI_WINDOW.csv_file("./files/csvfiles/"+session[1]).copy()
             print("printing output before yield:",output)
             yield '<h1 style="font-color: blue; font-size: 12px; font-weight: bold">  %s <br>  </h1> '% output
     return Response(inner(), mimetype='text/html')

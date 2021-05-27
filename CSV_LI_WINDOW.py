@@ -81,7 +81,7 @@ def CreatePod(hostname,uname,passwd,commands,allscripts="EMPTY"):
     #     return final_output.append('endofprogramcompletion')
 
     print("I am the last line of the execution")
-    return final_output
+    yield final_output
 
 def csv_file(filename):
     data_buffer=[]

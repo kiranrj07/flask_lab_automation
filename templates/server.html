@@ -26,7 +26,19 @@
 
                 }
             }
-        </script>
+
+$(document).on('change', '.div-toggle', function() {
+  var target = $(this).data('target');
+  var show = $("option:selected", this).data('show');
+  $(target).children().addClass('hide');
+  $(show).removeClass('hide');
+});
+$(document).ready(function(){
+	$('.div-toggle').trigger('change');
+});
+
+       </script>
+
 <style>
 .checkbox-inline{
     display: block !important;
@@ -136,21 +148,35 @@ form{
           </label>
             <br>
 
-        <label class="checkbox-inline">
-            &nbsp&nbsp
+<!--        <label class="checkbox-inline">-->
+            &nbsp&nbsp&nbsp&nbsp
          <input class="text_tab" type="button" style="background-color: tomato" onclick='selects()' value="Select All"/>
         <input class="text_tab" type="button" style="background-color: tomato" onclick='deSelect()' value="Deselect All"/>
 
             <label style=font-size:14,weight:bold;size:16px;" for="os">Select operation:</label>
-            <select style="background-color:black; font-family:georgia,garamond,serif;font-size:16px;font-style:italic;" name="os" id="os">
+            <select class="div-toggle" data-target=".changes" style="background-color:black; font-family:georgia,garamond,serif;font-size:16px;font-style:italic;" name="os" id="os">
                 <option selected disabled>Choose here</option>
                 <option value="powerup">Power-up</option>
                 <option value="shutdown">Shutdown</option>
-                <option value="command">command</option>
+                <option value="command" data-show=".command">command</option>
+                <option value="script"  data-show=".upload">script</option>
             </select>
             </label>
 
 
+<div class="changes">
+     <div class="upload">
+    &nbsp&nbsp&nbsp&nbsp
+    <label for="fileUpload">Select script file:
+    <input sclass="file_up_btn" type="file" id="fileUpload" name="file" value ="file"/>
+    </label>
+     </div>
+
+    <div class="command">
+    &nbsp&nbsp&nbsp&nbsp
+    <input sclass="file_up_btn" style="background-color:black; font-family:georgia,garamond,serif;font-size:16px;font-style:italic;" type="text" id="command" name="command" placeholder="Enter comamnd" />
+    </div>
+</div>
         <label class="checkbox-inline">
             <button class="text_tab" type="submit" style="background-color: tomato;">Submit</button>
         </label>
