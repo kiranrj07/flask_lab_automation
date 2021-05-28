@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6cd40e34-6458-4ef1-8a45-c2f58b39af21" name="Default Changelist" comment="server with select[shutdown] implementation" />
+    <list default="true" id="6cd40e34-6458-4ef1-8a45-c2f58b39af21" name="Default Changelist" comment="server with select[shutdown] implementation">
+      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csv_centos.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csv_ubuntu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV_LI_WINDOW.py" beforeDir="false" afterPath="$PROJECT_DIR$/CSV_LI_WINDOW.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto.py" beforeDir="false" afterPath="$PROJECT_DIR$/auto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/csvfiles/python_doc.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/csvfiles/python_doc.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/lab_database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/csv_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/csv_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/server.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/server.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -34,6 +45,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -95,8 +107,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.auto" />
       <item itemvalue="Python.python" />
+      <item itemvalue="Python.auto" />
     </list>
     <recent_temporary>
       <list>

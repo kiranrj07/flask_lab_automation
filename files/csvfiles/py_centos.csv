@@ -1,0 +1,6 @@
+10.1.1.41,pod1master,kube-master,
+10.1.1.42,pod1node1,kube-node1,
+10.1.1.43,pod1node2,kube-node2,
+10.1.1.44,pod2master,kube-master,
+10.1.1.45,pod2node1,kube-node1,
+10.1.1.46,pod2node2,kube-node2,

@@ -56,13 +56,15 @@
         <div class="guide_center" style="background-color: grey;" >
             <form class="file_up" action="{{ url_for('csv_content') }}" method="POST" enctype="multipart/form-data">
 
-<!--                 <label for="os">Select OS:</label>-->
-<!--                <select name="os" id="os">-->
-<!--                <option value="windows">Windows</option>-->
-<!--                <option value="linux">Linux</option>-->
-<!--                </select>-->
-<!--                <br>-->
-<!--                <br>-->
+                 <label for="os">Select OS:</label>
+                <select name="os" id="os">
+                <option value="windows">Windows</option>
+                <option value="linux">Linux</option>
+                <option value="python">Python Lab</option>
+                <option value="centos">Centos Lab</option>
+                </select>
+                <br>
+                <br>
 
                 <label for="fileUpload" style="font-weight: 500;">Select file from your computer</label>
                 <input sclass="file_up_btn" type="file" id="fileUpload" name="file" value ="file"/>

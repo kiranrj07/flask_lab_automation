@@ -1,7 +1,10 @@
+import csv
 import functools, math, time, os
 from werkzeug.utils import secure_filename, redirect
 from flask import Flask, request, url_for, Response, render_template, make_response
 import CSV_LI_WINDOW, database
+import csv_centos
+import csv_ubuntu
 
 app = Flask(__name__)
 session = []
@@ -109,18 +112,18 @@ def server_wakeup():
 def server_content():
     def inner():
         yield '<h1 style="font-color: blue; font-size: 12px; font-weight: bold">  %s <br>  </h1> ' % session
-
     return Response(inner(), mimetype='text/html')
 
-
+csv_content_cache=[]
 @app.route('/csv_content', methods=['POST'])
 @login_required
 def csv_content():
     f = request.files['file']
+    menu = str((request.form['os']))
     filename = secure_filename(f.filename)
     f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    # f.save(secure_filename(f.filename))
-    session.insert(1, f.filename)
+    csv_content_cache.append(f.filename)
+    csv_content_cache.append(menu)
     return render_template('csv_output.html')
 
 
@@ -130,40 +133,33 @@ def content():
     def inner():
         output = []
         # simulate a long process to watch
-        while 'endofprogramcompletion' not in output:
-            # yield '<b>The commands are being executed.</b><br/><br/>'
-            output = CSV_LI_WINDOW.csv_file("./files/csvfiles/" + session[1]).copy()
-            print("printing output before yield:", output)
-            yield '<h1 style="font-color: blue; font-size: 12px; font-weight: bold">  %s <br>  </h1> ' % output
+        if csv_content_cache[1] == "windows":
+            while 'endofprogramcompletion' not in output:
+                # yield '<b>The commands are being executed.</b><br/><br/>'
+                output = CSV_LI_WINDOW.csv_file_win("./files/csvfiles/" + csv_content_cache[0]).copy()
+                print("printing output before yield:", output)
+                yield '<h1 style="font-color: blue; font-size: 12px; font-weight: bold">  %s <br>  </h1> ' % output
+        elif csv_content_cache[1] == "linux":
+            while 'endofprogramcompletion' not in output:
+                # yield '<b>The commands are being executed.</b><br/><br/>'
+                output = CSV_LI_WINDOW.csv_file_linux("./files/csvfiles/" + csv_content_cache[0]).copy()
+                print("printing output before yield:", output)
+                yield '<h1 style="font-color: blue; font-size: 12px; font-weight: bold">  %s <br>  </h1> ' % output
+        elif csv_content_cache[1] == "python":
+            while 'endofprogramcompletion' not in output:
+                # yield '<b>The commands are being executed.</b><br/><br/>'
+                output = csv_ubuntu.csv_file_linux("./files/csvfiles/" + csv_content_cache[0]).copy()
+                print("printing output before yield:", output)
+                yield '<h1 style="font-color: blue; font-size: 12px; font-weight: bold">  %s <br>  </h1> ' % output
+        elif csv_content_cache[1] == "centos":
+            while 'endofprogramcompletion' not in output:
+                # yield '<b>The commands are being executed.</b><br/><br/>'
+                output = csv_centos.csv_file_linux("./files/csvfiles/" + csv_content_cache[0]).copy()
+                print("printing output before yield:", output)
+                yield '<h1 style="font-color: blue; font-size: 12px; font-weight: bold">  %s <br>  </h1> ' % output
 
     return Response(inner(), mimetype='text/html')
 
-    # return render_template('csv_output.html', word=inner())
-    # def inner():
-    #     output=[]
-    #     print("Printing file name here:",f.filename)
-    #     print("printing output before while:",output)
-    #     while 'endofprogramcompletion' not in output:
-    #        # yield '<b>The commands are being executed.</b><br/><br/>'
-    #         output = CSV_LI_WINDOW.csv_file(f.filename).copy()
-    #         print("printing output before yield:",output)
-    #         yield '%s<br/>\n' % output
-    #     return render_template('csv_output.html', data=inner())
-
-
-# @app.route('/output')
-# @login_required
-# def output_data():
-#     def inner():
-#         output=[]
-#
-#         #output.copy()
-#         yield '<h3>Home (<a href ="/">home</a>)</h3>'
-#         while 'endofprogramcompletion' not in output:
-#             yield '<b>The commands are being executed.</b><br/><br/>'
-#             output = pywin.csv_file(uploaded_file).copy()
-#             yield '%s<br/>\n' % output
-#     return flask.Response(inner(), mimetype='text/html')
 
 
 @app.route('/individual_output', methods=['POST'])

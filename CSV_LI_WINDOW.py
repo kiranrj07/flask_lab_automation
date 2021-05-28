@@ -17,7 +17,7 @@ def CreatePod(hostname,uname,passwd,commands,allscripts="EMPTY"):
     except:
         print("Failed to connect to % s" % hostname)
         final_output.append("<br/>Failed to connect to % s<br/>" % hostname)
-        return final_output
+        yield final_output
 
     mcommands = commands.split("#")
     try:
@@ -81,20 +81,49 @@ def CreatePod(hostname,uname,passwd,commands,allscripts="EMPTY"):
     #     return final_output.append('endofprogramcompletion')
 
     print("I am the last line of the execution")
-    return final_output
+    yield final_output
 
-def csv_file(filename):
+def csv_file_win(filename):
     data_buffer=[]
     with open(filename) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 1
         for row in csv_reader:
             data_buffer.append(row[0]+" "+row[1]+" "+row[2]+" "+row[3]+""+row[4])
+            #row[0]=ipaddress #row[1]=username  #row[2]=password  #row[3]=commands   #row[4]=send script and execute
             data_buffer.append("<br/> <br/><br/>Start of {} Task".format(line_count))
             data_buffer.append("<br/><br/>################################################### <br/> ")
             try:
                 #print("I am printing ++++++++++++++++++ createPod outupr in list:",CreatePod(row[0],row[1],row[2],row[3],row[4]))
-                data_buffer.append(CreatePod(row[0],row[1],row[2],row[3],row[4]))
+                data_buffer.append(next(CreatePod(row[0],row[1],row[2],row[3],row[4])))
+                line_count += 1
+            except:
+                data_buffer.append("<br/><br/>End of task no {} executed Unsuccessfully".format(line_count))
+                data_buffer.append("<br/><br/>################################################### <br/><br/>")
+                data_buffer.append("<br/><br/>Task no {} executed Unsuccessfully <br/>".format(line_count))
+                line_count += 1
+            # else:
+            #     data_buffer.append("End of task no {} executed successfully".format(line_count))
+            #     data_buffer.append("################################################### <br/><br/>")
+            #     data_buffer.append("Task no {} executed successfully <br/>".format(line_count))
+            #     line_count += 1
+
+        data_buffer.append("endofprogramcompletion")
+    return data_buffer
+
+def csv_file_linux(filename):
+    data_buffer=[]
+    with open(filename) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 1
+        for row in csv_reader:
+            data_buffer.append(row[0]+" "+row[1]+" "+row[2]+" "+row[3])
+            #row[0]=ipaddress #row[1]=username  #row[2]=password  #row[3]=commands   #row[4]=send script and execute
+            data_buffer.append("<br/> <br/><br/>Start of {} Task".format(line_count))
+            data_buffer.append("<br/><br/>################################################### <br/> ")
+            try:
+                #print("I am printing ++++++++++++++++++ createPod outupr in list:",CreatePod(row[0],row[1],row[2],row[3],row[4]))
+                data_buffer.append(next(CreatePod(row[0],row[1],row[2],row[3])))
                 line_count += 1
             except:
                 data_buffer.append("<br/><br/>End of task no {} executed Unsuccessfully".format(line_count))
